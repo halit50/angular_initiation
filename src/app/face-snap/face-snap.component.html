@@ -1,4 +1,13 @@
-<h2>{{ title }}</h2>
-<p>{{ description }}</p>
-<p>{{ createdDate }}</p>
-<p>{{ snaps }}</p>
+
+<div class="face-snap-card">
+    <h2>{{ title }}</h2>
+    <img [src]="imageUrl" [alt]="title">
+    <p>{{ description }}</p>
+    <p>{{ createdDate | date:'d/M/YYYY' }}</p>
+    <p>
+        <button (click)="onClickSnap()">{{ clickSnap }}</button>
+        {{ snaps }} 🤙
+    </p>
+  
+    
+</div>
