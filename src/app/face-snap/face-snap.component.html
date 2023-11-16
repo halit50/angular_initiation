@@ -1,13 +1,23 @@
 
 <div class="face-snap-card" [ngClass]="{ snapped: clickSnap === 'Oups, déjà cliqué'}">
-    <h2>{{ faceSnap.title }}</h2>
+    <h2>{{ faceSnap.title | titlecase }}</h2>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location"> Photo prise à {{ faceSnap.location}}</p>
-    <p>{{ faceSnap.createdDate | date:'d/M/YYYY' }}</p>
+    <p>{{ faceSnap.createdDate | date:'longDate' }}</p>
     <p>
 
         <button (click)="onClickSnap()">{{ clickSnap }}</button>
         <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)'}">{{ faceSnap.snaps }} 🤙</span>
+    </p>
+
+    <!--  DecimalPipe -->
+    <p>{{ 1235632.25| number:'1.0-1' }}</p>
+
+    <!-- PercentPipe -->
+    <p>{{ 0.36959 |percent: '1.0-2' }}</p>
+
+    <!-- CurrencyPipe -->
+    <p>{{ 18.65 |currency: 'EUR' }}</p>
       
 </div>
