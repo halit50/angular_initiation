@@ -17,7 +17,7 @@ export class FaceSnapsService {
             location: 'Paris'
           },
           {
-            id: 2, 
+            id: 2,
             title: 'Une banane etrange',
             description: 'Une banane qui fume',
             createdDate: new Date(),
@@ -51,5 +51,15 @@ export class FaceSnapsService {
     snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): void {
         const faceSnap = this.getFaceSnapById(faceSnapId);
         snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
+    }
+
+    addFaceSnap(formValue: {title:string, description: string, imageUrl: string, location?: string}): void{
+        const faceSnap: FaceSnap = {
+            ...formValue,
+            snaps: 0,
+            createdDate: new Date(),
+            id: this.faceSnaps[this.faceSnaps.length - 1].id + 1
+        };
+        this.faceSnaps.push(faceSnap)
     }
 }
