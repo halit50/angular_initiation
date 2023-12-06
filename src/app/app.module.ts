@@ -14,14 +14,13 @@ import { LandingPageModule } from './landing-page/landing-page.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    FaceSnapsModule,
     LandingPageModule
   ],
   providers: [
-  
+
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
+
 }
